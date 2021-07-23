@@ -239,9 +239,9 @@ class BarberController extends Controller
 
         // Fazer o agendamento
         $appointment = new UserAppointment();
-        $appointment->user_id = $this->user->id;
+        $appointment->user_id   = $this->user->id;
         $appointment->barber_id = $id;
-        $appointment->barber_service_id = $service;
+        $appointment->barber_service_id    = $service;
         $appointment->appointment_datetime = $appointmentDate;
         $appointment->save();
 

@@ -83,10 +83,10 @@ class BarberController extends Controller
     {
         $barber = Barber::find($id);
 
-        $barber['avatar']    = url('media/users/' . $barber['avatar']);
+        $barber['avatar'] = url('media/users/' . $barber['avatar']);
         $barber['favorited'] = false;
-        $barber['photos']    = [];
-        $barber['services']  = [];
+        $barber['photos'] = [];
+        $barber['services'] = [];
         $barber['testimonials'] = [];
         $barber['available'] = [];
 
@@ -218,7 +218,7 @@ class BarberController extends Controller
 
         // Verificar se o barbeiro atende desta data/hora
         $weekDay = date('w', strtotime($appointmentDate));
-        $avail   = BarberAvailability::select()
+        $avail = BarberAvailability::select()
             ->where('barber_id', $id)
             ->where('week_day', $weekDay)
             ->first();
@@ -239,9 +239,9 @@ class BarberController extends Controller
 
         // Fazer o agendamento
         $appointment = new UserAppointment();
-        $appointment->user_id   = $this->user->id;
+        $appointment->user_id = $this->user->id;
         $appointment->barber_id = $id;
-        $appointment->barber_service_id    = $service;
+        $appointment->barber_service_id = $service;
         $appointment->appointment_datetime = $appointmentDate;
         $appointment->save();
 
